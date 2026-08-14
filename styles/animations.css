@@ -1,0 +1,22 @@
+/* This hides each section at first so it can fade in when I scroll to it. */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+/* This shows the section once JavaScript tells it to appear. */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* This makes the cursor next to my typing animation blink. */
+.cursor {
+  animation: blink 1s infinite;
+}
+
+/* This controls the blinking effect. */
+@keyframes blink {
+  50% { opacity: 0; }
+}

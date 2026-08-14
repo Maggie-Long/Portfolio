@@ -1,0 +1,432 @@
+/* This is just to reset all the default spacing. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* This is the main styling for the whole page. */
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #f9fafc;
+  color: #111;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* This adds the subtle background pattern behind the page. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-radial-gradient(
+      circle at 30% 40%,
+      rgba(108,99,255,0.03) 0px,
+      rgba(108,99,255,0.03) 2px,
+      transparent 2px,
+      transparent 45px
+    );
+  animation: topoMove 80s linear infinite;
+  z-index: -1;
+}
+
+/* This is what moves the background pattern. */
+@keyframes topoMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-150px); }
+}
+
+/* This keeps the main content centered and gives it some space around the edges. */
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 100px 24px 70px;
+}
+
+/* This keeps the navigation at the top when I scroll. */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+/* This is the gradient on my name at the top. */
+.logo {
+  font-weight: 700;
+  background: linear-gradient(90deg, #6c63ff, #00bfa6);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* This controls how the navigation links are spaced. */
+nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+}
+
+/* This is the underline that shows up when I hover over a navigation link. */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #6c63ff;
+  transition: 0.25s;
+}
+
+/* This makes the underline expand when I hover. */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* This controls the first section people see when they open the site. */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 75vh;
+  margin-bottom: 120px;
+}
+
+/* This keeps the opening text from getting too wide. */
+.hero-content {
+  max-width: 720px;
+}
+
+/* This is the main sentence in the opening section. */
+.hero-top {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+/* This is the smaller text underneath the main sentence. */
+.hero-sub {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+/* This is the bigger line where the different areas of my work get typed out. */
+.typing-line {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+}
+
+/* This keeps the "I do this through" part bold. */
+.typing-line strong {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* JavaScript changes this text to show my different areas of work. */
+#typed-text {
+  font-weight: 700;
+}
+
+/* This is the blinking cursor next to the typed words. */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+}
+
+/* This gives each major section some space before the next one. */
+section {
+  margin-bottom: 120px;
+}
+
+/* This controls the main section headings. */
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+/* This controls the text in my About section. */
+#about p {
+  max-width: 680px;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #222;
+}
+
+/* This is the styling for my experience and project titles. */
+h3 {
+  margin-top: 28px;
+  margin-bottom: 10px;
+  padding: 8px 12px 8px 16px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.02);
+  position: relative;
+}
+
+/* These are the different colors for the strips next to my experience titles. */
+.content h3:nth-of-type(1)::before { background:#20c997; }
+.content h3:nth-of-type(2)::before { background:#6c63ff; }
+.content h3:nth-of-type(3)::before { background:#4dabf7; }
+.content h3:nth-of-type(4)::before { background:#f59f00; }
+.content h3:nth-of-type(5)::before { background:#e599f7; }
+
+/* This controls the little colored strip next to each title. */
+h3::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:4px;
+  height:16px;
+  border-radius:4px;
+}
+
+/* This is the date under each experience title. */
+.date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* This is the location under my Whole Foods title. */
+.location {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+/* This creates the two-column layout for my experience and sidebar. */
+.page-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+/* This controls the regular text in my experience section. */
+.content p {
+  margin-bottom: 14px;
+  max-width: 620px;
+  font-size: 0.96rem;
+  color: #222;
+}
+
+/* This controls the spacing around my experience bullet points. */
+.content ul {
+  margin: 12px 0 26px 18px;
+}
+
+/* This controls the space between each bullet. */
+.content li {
+  margin-bottom: 6px;
+}
+
+/* This is the white box for my skills and coursework. */
+.sidebar {
+  background: white;
+  padding: 24px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  position: relative;
+  height: fit-content;
+}
+
+/* This keeps the lists inside the sidebar lined up. */
+.sidebar ul {
+  margin-bottom: 20px;
+  padding-left: 18px;
+}
+
+/* This adds space between my different projects. */
+.project {
+  margin-top: 70px;
+}
+
+/* This keeps the project title close to the project content. */
+.project h3 {
+  margin-bottom: 12px;
+}
+
+/* This is the bigger card for my Grad Job Search Engine project. */
+.featured-project {
+  background: white;
+  padding: 32px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 60px;
+}
+
+/* This keeps the text inside the featured project from getting too wide. */
+.featured-project p,
+.featured-project ul {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* This centers the video in my featured project. */
+.featured-project video {
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* This is the note explaining the confidential startup work. */
+.confidential-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* This makes the main impact statement in my featured project stand out. */
+.impact-line {
+  margin: 10px 0;
+  font-weight: 500;
+  color: #444;
+}
+
+/* This is the grid I use for the PDFs and images in my Work section. */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* This controls the PDF previews in my Work section. */
+.media-grid iframe {
+  width: 100%;
+  height: 360px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+}
+
+/* This controls the images in my Work section. */
+.media-grid img {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+  background: white;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid #eee;
+}
+
+/* This keeps my video from getting too wide. */
+video {
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 20px;
+}
+
+/* This controls the color of my links. */
+a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+/* This adds an underline when I hover over a link. */
+a:hover {
+  text-decoration: underline;
+}
+
+/* This is the small footer at the bottom of the site. */
+footer {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* These are the changes for tablets and smaller screens. */
+@media (max-width: 900px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-project {
+    padding: 20px;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
+
+  .typing-line {
+    font-size: 1.6rem;
+  }
+
+  /* This puts my PDFs and images into one column on smaller screens. */
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* This makes the PDF previews shorter on smaller screens. */
+  .media-grid iframe {
+    height: 300px;
+  }
+
+  /* This lets the images resize instead of forcing them to stay at 360px tall. */
+  .media-grid img {
+    height: auto;
+    max-height: 300px;
+  }
+
+  /* This keeps the video from overflowing on smaller screens. */
+  .featured-project video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* These are the changes for smaller phones. */
+@media (max-width: 600px) {
+  main {
+    padding: 70px 16px 50px;
+  }
+
+  header {
+    padding: 16px 20px;
+  }
+
+  nav a {
+    margin-left: 14px;
+  }
+
+  .hero-top {
+    font-size: 1.2rem;
+  }
+
+  .hero-sub {
+    font-size: 0.98rem;
+  }
+
+  .typing-line {
+    font-size: 1.35rem;
+  }
+
+  /* This makes the PDF previews shorter on a phone. */
+  .media-grid iframe {
+    height: 260px;
+  }
+
+  /* This keeps the images from getting too tall on a phone. */
+  .media-grid img {
+    max-height: 260px;
+  }
+}
